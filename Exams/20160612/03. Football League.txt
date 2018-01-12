@@ -1,0 +1,113 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+
+    class TeamScore
+    {
+        public long Points { get; set; }
+
+        public long Goals { get; set; }
+    }
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string key = Console.ReadLine();
+
+        var allTeams = new Dictionary<string, TeamScore>();
+
+        while (true)
+        {
+            string input = Console.ReadLine();
+            if (input == "final")
+                break;
+            string[] currentMatch = input.Split().ToArray();
+
+            string firtTeamName = currentMatch.First();
+            string secondTeamName = currentMatch.Skip(1).First();
+            string resultOfMatch = currentMatch.Last();
+
+            int startIndexFirst = firtTeamName.IndexOf(key);
+            int lastIndexFirst = firtTeamName.LastIndexOf(key);
+
+            int startIndexSecond = secondTeamName.IndexOf(key);
+            int lastIndexSecond = secondTeamName.LastIndexOf(key);
+
+            firtTeamName = firtTeamName.Substring(startIndexFirst + key.Length, lastIndexFirst - startIndexFirst - key.Length);
+            firtTeamName = string.Join("", firtTeamName.ToUpper().ToCharArray().Reverse().ToArray());
+            secondTeamName = secondTeamName.Substring(startIndexSecond + key.Length, lastIndexSecond - startIndexSecond - key.Length);
+            secondTeamName = string.Join("", secondTeamName.ToUpper().ToCharArray().Reverse().ToArray());
+
+            long[] parsedResult = resultOfMatch.Split(':')
+                .Select(long.Parse)
+                .ToArray();
+            long goalsFirstTeam = parsedResult.First();
+            long goalsSecondTeam = parsedResult.Last();
+            if (!allTeams.ContainsKey(firtTeamName))
+            {
+                allTeams[firtTeamName] = new TeamScore();
+                allTeams[firtTeamName].Goals = goalsFirstTeam;
+                allTeams[firtTeamName].Points = GetPointsOfMatch(goalsFirstTeam, goalsSecondTeam);
+            }
+            else
+            {
+                allTeams[firtTeamName].Goals += goalsFirstTeam;
+                allTeams[firtTeamName].Points += GetPointsOfMatch(goalsFirstTeam, goalsSecondTeam);
+            }
+            if (!allTeams.ContainsKey(secondTeamName))
+            {
+                allTeams[secondTeamName] = new TeamScore();
+                allTeams[secondTeamName].Goals = goalsSecondTeam;
+                allTeams[secondTeamName].Points = GetPointsOfMatch(goalsSecondTeam, goalsFirstTeam);
+            }
+            else
+            {
+                allTeams[secondTeamName].Goals += goalsSecondTeam;
+                allTeams[secondTeamName].Points += GetPointsOfMatch(goalsSecondTeam, goalsFirstTeam);
+            }
+
+        }
+        var orderedTeamsByPoints = allTeams.OrderByDescending(x => x.Value.Points)
+            .ThenBy(x => x.Key).ToDictionary(k => k.Key, v => v.Value);
+        Console.WriteLine("League standings:");
+        int i = 0;
+        foreach (var item in orderedTeamsByPoints)
+        {
+            Console.WriteLine($"{++i}. {item.Key} {item.Value.Points}");
+        }
+        var orderedTeamsByGoals = allTeams.OrderByDescending(x => x.Value.Goals)
+            .ThenBy(x => x.Key).ToDictionary(k => k.Key, v => v.Value);
+        Console.WriteLine("Top 3 scored goals:");
+        int j = 0;
+        foreach (var item in orderedTeamsByGoals)
+        {
+            if (j > 2)
+                return;
+            Console.WriteLine($"- {item.Key} -> {item.Value.Goals}");
+            j++;
+        }
+    }
+
+    static long GetPointsOfMatch(long numberOfGoalsOne, long numberOfGoalsTwo)
+    {
+
+        if (numberOfGoalsOne > numberOfGoalsTwo)
+        {
+            return 3;
+        }
+        else if (numberOfGoalsOne < numberOfGoalsTwo)
+        {
+            return 0;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+}
+

@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _19_Thea_the_Photographer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ulong numberOfPictures = ulong.Parse(Console.ReadLine());
+            ulong secondsForEveryPicture = ulong.Parse(Console.ReadLine());
+            ulong pictureFaktor = ulong.Parse(Console.ReadLine());
+            ulong secondsForFilterPicture = ulong.Parse(Console.ReadLine());
+            
+            ulong firstOperationTime = numberOfPictures * secondsForEveryPicture;
+            ulong timeForFilter = (ulong)Math.Ceiling((pictureFaktor * 0.01) * numberOfPictures);
+            ulong secondOperationTime = timeForFilter * secondsForFilterPicture;
+            ulong timeAllInSeconds = firstOperationTime + secondOperationTime;
+            
+            ulong days = timeAllInSeconds / 86400;
+            ulong hours = (timeAllInSeconds % 86400)/3600;
+            ulong minutes= ((timeAllInSeconds % 86400) % 3600)/60;
+            ulong seconds = ((timeAllInSeconds % 86400) % 3600) % 60;
+
+            Console.WriteLine($"{days}:{hours:D2}:{minutes:D2}:{seconds:D2}");
+
+        }
+    }
+}

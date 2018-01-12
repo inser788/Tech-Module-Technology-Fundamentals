@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace _05_Key_Replacer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var input = Console.ReadLine();
+            var patternStart = @"^[A-Za-z]+[|\\<]";
+            var patternEnd = @"[\\|<][A-Za-z]+$";
+            Match matchStart = Regex.Match(input, patternStart);
+            Match matchEnd = Regex.Match(input, patternEnd);
+
+            var patternFirst = matchStart.Value.TrimEnd('<', '|', '\\');
+            var patternSecond = matchEnd.Value.TrimStart('<', '|', '\\');
+
+            var pattern = $"{patternFirst}(.*?){patternSecond}";
+            var text = Console.ReadLine();
+                        
+            var matches = Regex.Matches(text, pattern);
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (Match item in matches)
+            {
+                sb.Append(item.Groups[1].Value);
+            }
+            var result = sb.ToString();
+            if (result.Length>0)
+            {
+                Console.WriteLine(result);
+            }
+            else Console.WriteLine("Empty result");
+        }
+    }
+}

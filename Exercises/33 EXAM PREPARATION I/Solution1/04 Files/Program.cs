@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace _04_Files
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var n = int.Parse(Console.ReadLine());
+            var listOfDirectories = new List<string>();
+            for (int i = 0; i < n; i++)
+            {
+                listOfDirectories.Add(Console.ReadLine());
+            }
+            string filter = Console.ReadLine();
+            var filterTokens = Regex.Split(filter, " in ");
+            var filterExtencion ="."+ filterTokens.First();
+            var filterRoot = filterTokens.Last()+@"\";
+
+            Dictionary<string, int> fileSize = new Dictionary<string, int>();
+            foreach (var file in listOfDirectories)
+            {
+                var fileAndSize = file.Split(';');
+                var size = int.Parse(fileAndSize.Last());
+                var path = fileAndSize.First();
+                if (path.StartsWith(filterRoot)&& path.EndsWith(filterExtencion))
+                {
+                    var tokens = path.Split('\\');
+                    var fileName = tokens[tokens.Length - 1];
+                    fileSize[fileName] = size;
+                }
+            }
+            if (fileSize.Count>0)
+            {
+                foreach (var item in fileSize.OrderByDescending(x => x.Value).ThenBy(a => a.Key))
+                {
+                    Console.WriteLine($"{item.Key} - {item.Value} KB ");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+            
+        }
+    }
+}

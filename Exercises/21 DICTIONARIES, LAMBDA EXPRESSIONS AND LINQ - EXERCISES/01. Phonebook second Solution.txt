@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01_Phonebook
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool isOk = true;
+            var phoneBook = new Dictionary<string, string>();
+
+            while (isOk)
+            {
+                var command = Console.ReadLine().Split().ToList();
+                var operation = command[0];
+                switch (operation)
+                {
+                    case "A": GetAddingNameAndNumber(phoneBook, command); break;
+                    case "S": GetSearchingName(phoneBook, command); break;
+                    case "END":return;
+
+                }
+            }
+        }
+
+         static void GetSearchingName(Dictionary<string, string> phoneBook, List<string> command)
+        {
+            var userName = command[1];
+            if (phoneBook.ContainsKey(userName))
+            {
+                Console.WriteLine($"{userName} -> {phoneBook[userName]}");
+            }
+            else
+            {
+                Console.WriteLine($"Contact {userName} does not exist.");
+            }
+        }
+
+        static void GetAddingNameAndNumber(Dictionary<string, string> phoneBook, List<string> command)
+        {
+            var userName = command[1];
+            var userPhone = command[2];
+            if (phoneBook.ContainsKey(userName))
+            {
+                phoneBook[userName] = userPhone;
+            }
+            else
+            {
+                phoneBook.Add(userName, userPhone);
+            }
+        }
+    }
+}

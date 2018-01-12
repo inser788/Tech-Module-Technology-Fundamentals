@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _08_Employee_Data
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string firstName = Console.ReadLine();
+            string lasttName = Console.ReadLine();
+            sbyte age = sbyte.Parse(Console.ReadLine());
+            string gender = Console.ReadLine();
+            long personalIDnumber = long.Parse(Console.ReadLine());
+            int employeeNumber = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"First name: {firstName}");
+            Console.WriteLine($"Last name: {lasttName}");
+            Console.WriteLine($"Age: {age}");
+            Console.WriteLine($"Gender: {gender}");
+            Console.WriteLine($"Personal ID: {personalIDnumber}");
+            Console.WriteLine($"Unique Employee number: {employeeNumber}");
+
+
+
+        }
+    }
+}

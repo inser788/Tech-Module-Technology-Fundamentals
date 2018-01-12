@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01_Thea_the_Photographer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            long numberOfPictures = long.Parse(Console.ReadLine());
+            long secondForEveryPictureFilter = long.Parse(Console.ReadLine());
+            int filterFactor = int.Parse(Console.ReadLine());
+            long timeInSecondsUpload = long.Parse(Console.ReadLine());
+            long filterSeconds = numberOfPictures * secondForEveryPictureFilter;
+            double percentForFilter = filterFactor / 100.0;
+            var numberOfFilteredPictures = (long)Math.Ceiling(numberOfPictures * percentForFilter);
+            long timeForupload = numberOfFilteredPictures * timeInSecondsUpload;
+            long timeSecondAll = filterSeconds + timeForupload;
+            TimeSpan allSeconds = TimeSpan.FromSeconds(timeSecondAll);
+            string totalTime = allSeconds.ToString(@"d\:hh\:mm\:ss");
+            Console.WriteLine(totalTime);
+        }
+    }
+}

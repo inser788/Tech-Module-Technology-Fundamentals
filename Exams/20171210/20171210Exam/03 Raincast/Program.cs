@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace _03_Raincast
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string patternType = @"^Type: (Normal|Warning|Danger)$";
+            string patternSource = @"^Source: ([A-Za-z0-9]+)$";
+            string patternForecast = @"^Forecast: ([^\!\.\,\?]+)$";
+
+            string result = string.Empty;
+            var listOfResults = new List<string>();
+            string stop = "Davai Emo";
+
+            while (true)
+            {
+                string input = Console.ReadLine();
+                if (input == stop)
+                    goto PrintItems;
+                Match matchType = Regex.Match(input, patternType);
+                while (matchType.Success)
+                {
+                    string type = matchType.Groups[1].ToString();
+                    input = Console.ReadLine();
+                    if (input == stop)
+                        goto PrintItems;
+                    Match matchSource = Regex.Match(input, patternSource);
+                    while (matchSource.Success)
+                    {
+                        string source = matchSource.Groups[1].ToString();
+                        input = Console.ReadLine();
+                        if (input == stop)
+                            goto PrintItems;
+                        Match matchForecast = Regex.Match(input, patternForecast);
+                        while (matchForecast.Success)
+                        {
+                            string forecast = matchForecast.Groups[1].ToString();
+                            result = "(" + type + ")" + " " + forecast + " " + "~" + " " + source;
+                            listOfResults.Add(result);
+                            result = string.Empty;
+                            goto FirstOuter;
+                        }
+                        continue;
+                    }
+                    continue;
+                }
+                FirstOuter:
+                continue;
+            }
+            PrintItems:
+            listOfResults.ForEach(e => Console.WriteLine(e));
+        }
+    }
+}

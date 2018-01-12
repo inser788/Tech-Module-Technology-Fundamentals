@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Problem_01
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            int spacesLeftRight = 0;
+            int spacesMiddle = n-2;
+            int width = n;
+
+            for (int row = 1; row <=(n-1)/2; row++)
+            {
+                Console.WriteLine("{0}x{1}x{0}",
+                    new string(' ',spacesLeftRight),
+                    new string(' ',spacesMiddle));
+                spacesLeftRight++;
+                spacesMiddle -= 2;
+            }
+            Console.WriteLine("{0}x{0}",
+                new string(' ',(n-1)/2));
+            spacesMiddle = 1;
+            spacesLeftRight = (n - 3) / 2;
+            for (int row = 1; row <= (n - 1) / 2; row++)
+            {
+                Console.WriteLine("{0}x{1}x{0}",
+                    new string(' ', spacesLeftRight),
+                    new string(' ', spacesMiddle));
+                spacesLeftRight--;
+                spacesMiddle += 2;
+            }
+
+
+
+        }
+    }
+}

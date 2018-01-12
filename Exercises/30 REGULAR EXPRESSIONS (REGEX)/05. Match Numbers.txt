@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace _05_Match_Numbers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string pattern = @"(^|(?<=\s))-?(\d+)\.?(\d+)?($|(?=\s))";
+            string text = Console.ReadLine();
+            var collectionText = Regex.Matches(text, pattern).Cast<Match>().Select(a => a.Value).ToArray();
+            Console.WriteLine(string.Join(" ",collectionText));
+            
+        }
+    }
+}

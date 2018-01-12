@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _04_Vehicle_Park
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var allVechicles = Console.ReadLine()
+                .Split()
+                .ToList();
+            int soldVechicles = 0;
+
+            while (true)
+            {
+                string input = Console.ReadLine();
+                if (input == "End of customers!")
+                    break;
+                string[] vechicleFormat = input.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
+                    .ToArray();
+                char typeVechicle = vechicleFormat.First().ToLower().ToCharArray().First();
+                int asciiCode = 0;
+                asciiCode += typeVechicle;
+                int vechicleSeats = int.Parse(vechicleFormat.Skip(2).First());
+                int price = asciiCode * vechicleSeats;
+                string resultVechicle = string.Empty;
+                resultVechicle = typeVechicle +( vechicleSeats + "");
+                if (!allVechicles.Contains(resultVechicle))
+                {
+                    Console.WriteLine("No");
+                }
+                else
+                {
+                    Console.WriteLine($"Yes, sold for {price}$");
+                    soldVechicles++;
+                    allVechicles.Remove(resultVechicle);
+                }
+            }
+            Console.WriteLine($"Vehicles left: {string.Join(", ",allVechicles)}");
+            Console.WriteLine($"Vehicles sold: {soldVechicles}");
+        }
+    }
+}

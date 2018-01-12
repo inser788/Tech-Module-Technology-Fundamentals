@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _00_Exercises
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var array = Console.ReadLine()
+                .Split(' ')
+                .ToArray();
+            string[] reversed = new string[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                reversed[i] = array[array.Length - 1 - i];
+            }
+            Console.WriteLine(string.Join(" ",reversed));
+        } 
+    }
+}

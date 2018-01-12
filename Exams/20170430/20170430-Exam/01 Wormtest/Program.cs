@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01_Wormtest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double wormLength = double.Parse(Console.ReadLine());
+            double wormWidth = double.Parse(Console.ReadLine());
+            double remainder = (wormLength * 100.0) % wormWidth;
+            double product = (wormLength * 100) * wormWidth;
+            double percentage = ((wormLength * 100) / wormWidth) * 100;
+            if (wormLength == 0 || wormWidth == 0)
+            {
+                Console.WriteLine("0.00");
+            }
+            else if (remainder == 0)
+            {
+                Console.WriteLine($"{product:f2}");
+            }
+            else
+            {
+                Console.WriteLine($"{percentage:f2}%");
+            }
+        }
+    }
+}

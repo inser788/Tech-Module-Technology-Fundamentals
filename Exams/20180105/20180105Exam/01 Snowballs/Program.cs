@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01_Snowballs
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numberOfSnowBalls = int.Parse(Console.ReadLine());
+
+            var listSnowBallParametes = new List<BigInteger>();
+            var listSnowBallValue = new List<BigInteger>();
+
+            for (int i = 0; i < numberOfSnowBalls; i++)
+            {
+                BigInteger snowballSnow = BigInteger.Parse(Console.ReadLine());
+
+                BigInteger snowballTime = BigInteger.Parse(Console.ReadLine());
+
+                BigInteger snowballQuality = BigInteger.Parse(Console.ReadLine());
+
+                BigInteger snowballDelete = (snowballSnow / snowballTime);
+                BigInteger snowBallValue = 1;
+                for (BigInteger j = 0; j < snowballQuality; j++)
+                {
+                    snowBallValue *= snowballDelete;
+                }
+                listSnowBallValue.Add(snowBallValue);
+                listSnowBallParametes.Add(snowballSnow);
+                listSnowBallParametes.Add(snowballTime);
+                listSnowBallParametes.Add(snowballQuality);
+
+            }
+            BigInteger maxValue = listSnowBallValue.Max();
+            int indexOfMaxValue = listSnowBallValue.IndexOf(maxValue);
+            
+            BigInteger resultSnow = listSnowBallParametes.ElementAt(indexOfMaxValue * 3);
+            BigInteger resultTime = listSnowBallParametes.ElementAt((indexOfMaxValue * 3)+1);
+            BigInteger resultQuality = listSnowBallParametes.ElementAt((indexOfMaxValue * 3)+2);
+            Console.WriteLine($"{resultSnow} : {resultTime} = {maxValue} ({resultQuality})");
+        }
+    }
+}

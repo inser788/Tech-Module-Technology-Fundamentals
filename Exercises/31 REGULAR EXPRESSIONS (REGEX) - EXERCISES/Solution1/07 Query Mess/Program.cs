@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace _07_Query_Mess
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var pattern = @"([^&=?\s]*)=([^&=\s]*)";
+            var whiteSpacespattern = @"((%20|\+)+)";
+            string input;
+            while (!((input = Console.ReadLine()) == "END"))
+            {
+                Dictionary<string, List<string>> listOfKVP = new Dictionary<string, List<string>>();
+                var matches = Regex.Matches(input, pattern);
+                for (int i = 0; i < matches.Count; i++)
+                {
+                    string key = matches[i].Groups[1].Value;
+                    key = Regex.Replace(key, whiteSpacespattern, " ").Trim();
+                    string value = matches[i].Groups[2].Value;
+                    value = Regex.Replace(value, whiteSpacespattern, " ").Trim();
+                    if (!listOfKVP.ContainsKey(key))
+                    {
+                        listOfKVP.Add(key, new List<string>());
+                    }
+                    if (!listOfKVP[key].Contains(value))
+                    {
+                        listOfKVP[key].Add(value);
+                    }
+
+                }
+                foreach (var item in listOfKVP)
+                {
+                    Console.Write($"{item.Key}=[{string.Join(", ",item.Value)}]");
+                }
+                Console.WriteLine();
+
+            }
+
+        }
+
+
+    }
+}

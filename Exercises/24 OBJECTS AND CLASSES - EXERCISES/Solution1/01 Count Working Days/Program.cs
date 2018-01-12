@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01_Count_Working_Days
+{
+    class Program
+    {
+        public static object CulturInfo { get; private set; }
+
+        static void Main(string[] args)
+        {
+            var startDate = GetExatDate();
+            var endDate = GetExatDate();
+            int counter = 0;
+            DateTime[] nonWorkingDays = new DateTime[]
+               {
+                new DateTime(2000,01,01),
+                new DateTime(2000,03,03),
+                new DateTime(2000,05,01),
+                new DateTime(2000,05,06),
+                new DateTime(2000,05,24),
+                new DateTime(2000,09,06),
+                new DateTime(2000,09,22),
+                new DateTime(2000,11,01),
+                new DateTime(2000,12,24),
+                new DateTime(2000,12,25),
+                new DateTime(2000,12,26)
+           };
+            for (DateTime currentDate = startDate; currentDate <= endDate; currentDate=currentDate.AddDays(1))
+            {
+                DateTime holiday = new DateTime(2000, currentDate.Month, currentDate.Day);
+                if (currentDate.DayOfWeek!=DayOfWeek.Saturday
+                    && currentDate.DayOfWeek!=DayOfWeek.Sunday
+                    && !nonWorkingDays.Contains(holiday))
+                {
+                    counter++;
+                }
+            }
+            Console.WriteLine(counter);
+
+        }
+
+         static DateTime GetExatDate()
+        {
+            var date = Console.ReadLine().Split('-').Select(int.Parse).ToArray();
+            return new DateTime(date.Last(), date[1], date.First());
+        }
+    }
+}

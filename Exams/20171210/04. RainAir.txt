@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _04_RainAir
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var customersAndFlights = new Dictionary<string, List<int>>();
+
+            while (true)
+            {
+                string input = Console.ReadLine();
+                if (input == "I believe I can fly!")
+                    break;
+                var command = input.Split(" =".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
+                    .ToArray();
+                string customerName = command.First();
+
+                if (!customersAndFlights.ContainsKey(customerName))
+                {
+                    customersAndFlights[customerName] = new List<int>();
+                }
+                if (input.Contains("="))
+                {
+                    string secondCustName = command.Last();
+                    customersAndFlights[customerName].Clear();
+                    customersAndFlights[customerName].AddRange(customersAndFlights[secondCustName]);
+                }
+                else
+                {
+                    for (int i = 1; i < command.Length; i++)
+                    {
+                        int currentFlight = int.Parse(command[i]);
+                        customersAndFlights[customerName].Add(currentFlight);
+                    }
+                }
+                
+            }
+            var orderedResult = customersAndFlights.OrderByDescending(x => x.Value.Count())
+                    .ThenBy(x => x.Key)
+                    .ToDictionary(k => k.Key, v => v.Value);
+            foreach (var item in orderedResult)
+            {
+                Console.WriteLine($"#{item.Key} ::: {string.Join(", ", item.Value.OrderBy(x => x))}");
+            }
+        }
+    }
+}

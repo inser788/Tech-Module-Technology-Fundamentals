@@ -1,0 +1,146 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _07_Sentence_the_Thief
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string numeralType = Console.ReadLine();
+            int countOfIds = int.Parse(Console.ReadLine());
+            sbyte maxValueSbyte = sbyte.MinValue;
+            int maxValueInt = int.MinValue;
+            long maxValueLong = long.MinValue;
+            for (int i = 0; i < countOfIds; i++)
+            {
+                long id = long.Parse(Console.ReadLine());
+                switch (numeralType)
+                {
+                    case "sbyte":
+                        if (id >= sbyte.MinValue && id <= sbyte.MaxValue)
+                        {
+                            if (id > maxValueSbyte)
+                            {
+                                maxValueSbyte = (sbyte)id;
+                            }
+                        }
+                        break;
+                    case "int":
+                        if (id >= int.MinValue && id <= int.MaxValue)
+                        {
+                            if (id > maxValueInt)
+                            {
+                                maxValueInt = (int)id;
+                            }
+                        }
+                        break;
+                    case "long":
+                        if (id >= long.MinValue && id <= long.MaxValue)
+                        {
+                            if (id > maxValueLong)
+                            {
+                                maxValueLong = id;
+                            }
+                        }
+                        break;
+                }
+
+            }
+            switch (numeralType)
+            {
+                case "sbyte":
+                    if (maxValueSbyte>=0)
+                    {
+                        double sentence = Math.Ceiling(maxValueSbyte / 127.0);
+                        if (sentence==1)
+                        {
+                            Console.WriteLine($"Prisoner with id {maxValueSbyte} is sentenced to {sentence} year");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Prisoner with id {maxValueSbyte} is sentenced to {sentence} years");
+
+                        }
+                    }
+                    else
+                    {
+                        double sentence = Math.Ceiling(maxValueSbyte / -128.0);
+                        if (sentence == 1)
+                        {
+                            Console.WriteLine($"Prisoner with id {maxValueSbyte} is sentenced to {sentence} year");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Prisoner with id {maxValueSbyte} is sentenced to {sentence} years");
+
+                        }
+                    }
+                    break;
+
+                case "int":
+                    if (maxValueInt >= 0)
+                    {
+                        double sentence = Math.Ceiling(maxValueInt / 127.0);
+                        if (sentence == 1)
+                        {
+                            Console.WriteLine($"Prisoner with id {maxValueInt} is sentenced to {sentence} year");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Prisoner with id {maxValueInt} is sentenced to {sentence} years");
+
+                        }
+                    }
+                    else
+                    {
+                        double sentence = Math.Ceiling(maxValueInt / -128.0);
+                        if (sentence == 1)
+                        {
+                            Console.WriteLine($"Prisoner with id {maxValueInt} is sentenced to {sentence} year");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Prisoner with id {maxValueInt} is sentenced to {sentence} years");
+
+                        }
+                    }
+                        break;
+
+                case "long":
+                    if (maxValueLong >= 0)
+                    {
+                        double sentence = Math.Ceiling(maxValueLong / 127.0);
+                        if (sentence == 1)
+                        {
+                            Console.WriteLine($"Prisoner with id {maxValueLong} is sentenced to {sentence} year");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Prisoner with id {maxValueLong} is sentenced to {sentence} years");
+
+                        }
+                    }
+                    else
+                    {
+                        double sentence = Math.Ceiling(maxValueLong / -128.0);
+                        if (sentence == 1)
+                        {
+                            Console.WriteLine($"Prisoner with id {maxValueLong} is sentenced to {sentence} year");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Prisoner with id {maxValueLong} is sentenced to {sentence} years");
+
+                        }
+                    }
+                    break;
+
+            }
+
+        }
+    }
+}

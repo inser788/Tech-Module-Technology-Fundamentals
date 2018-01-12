@@ -1,0 +1,104 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace _04_Trainlands
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string patternFirst = @"^([^\s\-\>:=]+) -> ([^\s\-\>:=]+) : (\d+)$";
+            string patternSecond = @"^([^\s\-\>:=]+) -> ([^\s\-\>:=]+)$";
+            string patternThird = @"^([^\s\-\>:=]+) = ([^\s\-\>:=]+)$";
+            var listOfTrainsAndWagons = new Dictionary<string, Dictionary<string, long>>();
+
+            while (true)
+            {
+                string lineInput = Console.ReadLine();
+                if (lineInput == "It's Training Men!")
+                    break;
+                var matchTrainPower = Regex.Match(lineInput, patternFirst);
+                if (matchTrainPower.Success)
+                {
+                    var trainName = matchTrainPower.Groups[1].Value.ToString();
+                    var wagonName = matchTrainPower.Groups[2].Value.ToString();
+                    var trainPower = long.Parse(matchTrainPower.Groups[3].Value.ToString());
+                    if (!listOfTrainsAndWagons.ContainsKey(trainName))
+                    {
+                        listOfTrainsAndWagons[trainName] = new Dictionary<string, long>();
+                    }
+                    if (!listOfTrainsAndWagons[trainName].ContainsKey(wagonName))
+                    {
+                        listOfTrainsAndWagons[trainName][wagonName] = trainPower;
+                    }
+                }
+                var matchExchange = Regex.Match(lineInput, patternSecond);
+                if (matchExchange.Success)
+                {
+                    var trainNameExchange = matchExchange.Groups[1].Value.ToString();
+                    var otherTrainName = matchExchange.Groups[2].Value.ToString();
+                    var counterWagons = listOfTrainsAndWagons[otherTrainName].Keys.Count();
+                    if (!listOfTrainsAndWagons.ContainsKey(trainNameExchange))
+                    {
+                        listOfTrainsAndWagons[trainNameExchange] = new Dictionary<string, long>();
+                        for (int i = 0; i < counterWagons; i++)
+                        {
+                            listOfTrainsAndWagons[trainNameExchange].Add(listOfTrainsAndWagons[otherTrainName].Keys.Skip(i).First(),
+                                                                listOfTrainsAndWagons[otherTrainName].Values.Skip(i).First());
+                        }
+                        listOfTrainsAndWagons.Remove(otherTrainName);
+                    }
+                    else
+                    {
+                        for (int i = 0; i < counterWagons; i++)
+                        {
+                            listOfTrainsAndWagons[trainNameExchange].Add(listOfTrainsAndWagons[otherTrainName].Keys.Skip(i).First(),
+                                                                listOfTrainsAndWagons[otherTrainName].Values.Skip(i).First());
+                        }
+                        listOfTrainsAndWagons.Remove(otherTrainName);
+                    }
+                }
+                var matchEquals = Regex.Match(lineInput, patternThird);
+                if (matchEquals.Success)
+                {
+                    var trainNameEquals = matchEquals.Groups[1].Value.ToString();
+                    var otherTrainNameEquals = matchEquals.Groups[2].Value.ToString();
+                    var counterWagons = listOfTrainsAndWagons[otherTrainNameEquals].Keys.Count();
+                    if (!listOfTrainsAndWagons.ContainsKey(trainNameEquals))
+                    {
+                        listOfTrainsAndWagons[trainNameEquals] = new Dictionary<string, long>();
+                        for (int i = 0; i < counterWagons; i++)
+                        {
+                            listOfTrainsAndWagons[trainNameEquals].Add(listOfTrainsAndWagons[otherTrainNameEquals].Keys.Skip(i).First(),
+                                                                   (listOfTrainsAndWagons[otherTrainNameEquals].Values.Skip(i).First()));
+                        }
+                    }
+                    else
+                    {
+                        listOfTrainsAndWagons[trainNameEquals] = new Dictionary<string, long>();
+                        for (int i = 0; i < counterWagons; i++)
+                        {
+                            listOfTrainsAndWagons[trainNameEquals].Add(listOfTrainsAndWagons[otherTrainNameEquals].Keys.Skip(i).First(),
+                                                                   (listOfTrainsAndWagons[otherTrainNameEquals].Values.Skip(i).First()));
+                        }
+                    }
+                }
+            }
+            var orderedTrains = listOfTrainsAndWagons.OrderByDescending(x => x.Value.Values.Sum())
+                                                   .ThenBy(a => a.Value.Keys.Count())
+                                                   .ToDictionary(k => k.Key, v => v.Value);
+            foreach (var train in orderedTrains)
+            {
+                Console.WriteLine($"Train: {train.Key}");
+                foreach (var wagon in train.Value.OrderByDescending(p=>p.Value))
+                {
+                    Console.WriteLine($"###{wagon.Key} - {wagon.Value}");
+                }
+            }
+        }
+    }
+}

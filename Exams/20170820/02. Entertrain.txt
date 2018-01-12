@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _02_Entertrain
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int lokoPower = int.Parse(Console.ReadLine());
+            var listOfWagons = new List<int>();
+            var sumWeightWagons = 0;
+            while (true)
+            {
+                string input = Console.ReadLine();
+                if (input == "All ofboard!")
+                    break;
+                var currentNumber = int.Parse(input);
+                listOfWagons.Add(currentNumber);
+                var wagonsCount = listOfWagons.Count();
+                sumWeightWagons += currentNumber;
+                if (sumWeightWagons > lokoPower)
+                {
+                    var averageWeight = sumWeightWagons / wagonsCount;
+                    if (listOfWagons.Contains(averageWeight))
+                    {
+                        listOfWagons.Remove(averageWeight);
+                       // sumWeightWagons -= averageWeight;
+                    }
+                    else
+                    {
+                        int closest = listOfWagons.OrderBy(item => Math.Abs(averageWeight - item)).First();
+                        listOfWagons.Remove(closest);
+                        sumWeightWagons -= closest;
+                        
+                    }
+                }
+            }
+            listOfWagons.Reverse();
+            listOfWagons.Add(lokoPower);
+            Console.WriteLine(string.Join(" ",listOfWagons));
+        }
+    }
+}

@@ -1,0 +1,87 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _05_Book_Library
+{
+    class Library
+    {
+        public string Name { get; set; }
+        public List<Book> Books = new List<Book>();
+    }
+    class Book
+    {
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public string Publisher { get; set; }
+        public DateTime RealeasDate { get; set; }
+        public string ISBN { get; set; }
+        public decimal Price { get; set; }
+    }
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            int booksCount = int.Parse(Console.ReadLine());
+            Library libraryOfBooks = GetLibraryOfbooks(booksCount);
+            var authorsBooksTotalPrice = GetTotalPriceBooks(libraryOfBooks);
+            PrintAuthors(authorsBooksTotalPrice);
+        }
+
+        private static void PrintAuthors(Dictionary<string, decimal> authorsBooksTotalPrice)
+        {
+            var orderedAuthors = authorsBooksTotalPrice.OrderByDescending(a => a.Value).ThenBy(n => n.Key).ToDictionary(k => k.Key,v=>v.Value);
+            foreach (var item in orderedAuthors)
+            {
+                Console.WriteLine($"{item.Key} -> {item.Value:f2}");
+            }
+        }
+
+        static Dictionary<string,decimal> GetTotalPriceBooks(Library libraryOfBooks)
+        {
+            var totalBooksPrice = new Dictionary<string, decimal>();
+            foreach (var book in libraryOfBooks.Books)
+            {
+                if (!totalBooksPrice.ContainsKey(book.Author))
+                {
+                    totalBooksPrice[book.Author] = 0.0m;
+                }
+                totalBooksPrice[book.Author] += book.Price;
+            }
+            return totalBooksPrice;
+        }
+
+        private static Library GetLibraryOfbooks(int booksCount)
+        {
+            Library libraryOfBooks = new Library();
+            var listBook = new List<Book>();
+            for (int i = 0; i < booksCount; i++)
+            {
+                libraryOfBooks.Books.Add(GetBook());
+            }
+            return libraryOfBooks;
+        }
+
+        private static Book GetBook()
+        {
+            var bookInfo = Console.ReadLine().Split().ToArray();
+            var dateFormat = "d.M.yyyy";
+            return new Book
+            {
+
+                Title = bookInfo.First(),
+                Author = bookInfo.Skip(1).First(),
+                Publisher = bookInfo.Skip(2).First(),
+                RealeasDate = DateTime.ParseExact(bookInfo.Skip(3).First(), dateFormat, CultureInfo.InvariantCulture),
+                ISBN = bookInfo.Skip(4).First(),
+                Price = decimal.Parse(bookInfo.Last())
+            };
+        }
+    }
+}

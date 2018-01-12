@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01_Charity_Marathon
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int days = int.Parse(Console.ReadLine());
+            int listedRunners = int.Parse(Console.ReadLine());
+            int lapsForRunner = int.Parse(Console.ReadLine());
+            int lengthofLap = int.Parse(Console.ReadLine());
+            int capacityTrack = int.Parse(Console.ReadLine());
+            decimal moneyPerKM = decimal.Parse(Console.ReadLine());
+            long maxPeopleForRun = days * capacityTrack;
+            decimal moneyTotal = 0.0m;
+            if (maxPeopleForRun>=listedRunners)
+            {
+                long totalMeters = listedRunners * lapsForRunner * lengthofLap;
+                decimal kilometers = totalMeters / 1000.0m;
+                 moneyTotal = kilometers * moneyPerKM;
+            }
+            else
+            {
+                long totalMeters = maxPeopleForRun * lapsForRunner * lengthofLap;
+                decimal kilometers = totalMeters / 1000.0m;
+                moneyTotal = kilometers * moneyPerKM;
+            }
+            Console.WriteLine($"Money raised: {moneyTotal:f2}");
+
+        }
+    }
+}

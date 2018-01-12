@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _03_Hornet_Assault
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var inputBees = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToList();
+            var hornetsAttackers = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToList();
+            var beesInHiveLeft = new List<double>();
+
+            for (int i = 0; i < inputBees.Count; i++)
+            {
+                var currentBeehive = inputBees[i];
+                var powerOfHornets = hornetsAttackers.Sum();
+                if (powerOfHornets > currentBeehive)
+                {
+                    currentBeehive = 0;
+                    beesInHiveLeft.Add(currentBeehive);
+                }
+                else
+                {
+                    currentBeehive -= powerOfHornets;
+                    if (hornetsAttackers.Count == 0)
+                    {
+                        beesInHiveLeft.Add(currentBeehive);
+                        beesInHiveLeft.RemoveAll(x => x == 0);
+                        Console.WriteLine(string.Join(" ", beesInHiveLeft));
+                        return;
+                    }
+                    hornetsAttackers.RemoveAt(0);
+                    beesInHiveLeft.Add(currentBeehive);
+                }
+            }
+            if (beesInHiveLeft.Sum() == 0)
+            {
+                if (hornetsAttackers.Count == 0)
+                {
+                    Console.WriteLine(0);
+                }
+                else
+                {
+                    Console.WriteLine(string.Join(" ", hornetsAttackers));
+
+                }
+            }
+            else
+            {
+                beesInHiveLeft.RemoveAll(x => x == 0);
+                Console.WriteLine(string.Join(" ", beesInHiveLeft));
+            }
+
+        }
+    }
+}

@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _02_Reverse_Array_of_Integers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int arraySize = int.Parse(Console.ReadLine());
+            int[] arrayReverse = new int[arraySize];
+            for (int i = arraySize-1; i >=0 ; i--)
+            {
+                arrayReverse[i] = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine(string.Join(" ",arrayReverse));
+        }
+    }
+}

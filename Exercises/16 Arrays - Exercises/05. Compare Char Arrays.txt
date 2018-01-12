@@ -1,0 +1,49 @@
+using System;
+using System.Linq;
+
+
+namespace _05_Compare_Char_Arrays
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var arrayOne = Console.ReadLine().Split(' ').Select(char.Parse).ToArray();
+            var arrayTwo = Console.ReadLine().Split(' ').Select(char.Parse).ToArray();
+
+            var shorterArray = Math.Min(arrayOne.Length, arrayTwo.Length);
+
+            for (int currentSymbol = 0; currentSymbol < shorterArray; currentSymbol++)
+            {
+                if (arrayOne[currentSymbol] < arrayTwo[currentSymbol])
+                {
+                    Console.WriteLine(string.Join("", arrayOne));
+                    Console.WriteLine(string.Join("", arrayTwo));
+                    return;
+                }
+                else if (arrayOne[currentSymbol] > arrayTwo[currentSymbol])
+                {
+                    Console.WriteLine(string.Join("", arrayTwo));
+                    Console.WriteLine(string.Join("", arrayOne));
+                    return;
+                }
+
+            }
+            if (shorterArray == arrayOne.Length)
+            {
+                Console.WriteLine(string.Join("", arrayOne));
+                Console.WriteLine(string.Join("", arrayTwo));
+
+            }
+            else
+            {
+                Console.WriteLine(string.Join("", arrayTwo));
+                Console.WriteLine(string.Join("", arrayOne));
+
+            }
+
+
+
+        }
+    }
+}

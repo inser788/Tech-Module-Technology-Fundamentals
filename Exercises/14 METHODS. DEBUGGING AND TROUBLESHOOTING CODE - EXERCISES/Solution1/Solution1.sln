@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01 Hello, Name!", "01 Hello, Name!\01 Hello, Name!.csproj", "{6A94FE7E-31B3-41CA-A6EE-2DD079468572}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02 Max Method", "02 Max Method\02 Max Method.csproj", "{7A41C5C5-ECA0-4A6B-86AE-58512E1C86D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03English NameofLastDigit", "03English NameofLastDigit\03English NameofLastDigit.csproj", "{BD4AC0C5-6128-468F-9543-9457686FD58B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04 NumbersinReversedOrder", "04 NumbersinReversedOrder\04 NumbersinReversedOrder.csproj", "{DA3C1025-3C68-41FD-9B21-0D58C1479582}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05 Fibonacci Numbers", "05 Fibonacci Numbers\05 Fibonacci Numbers.csproj", "{00B47A2B-2CF3-4DEE-B202-87FC3D0232A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06 Prime Checker", "06 Prime Checker\06 Prime Checker.csproj", "{200D6950-20B4-493A-B70D-4EC1CB0910D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07 Primes in Given Range", "07 Primes in Given Range\07 Primes in Given Range.csproj", "{3FC9E07F-9D6D-4481-B725-7BA5D2A04C86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A94FE7E-31B3-41CA-A6EE-2DD079468572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A94FE7E-31B3-41CA-A6EE-2DD079468572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A94FE7E-31B3-41CA-A6EE-2DD079468572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A94FE7E-31B3-41CA-A6EE-2DD079468572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A41C5C5-ECA0-4A6B-86AE-58512E1C86D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A41C5C5-ECA0-4A6B-86AE-58512E1C86D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A41C5C5-ECA0-4A6B-86AE-58512E1C86D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A41C5C5-ECA0-4A6B-86AE-58512E1C86D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD4AC0C5-6128-468F-9543-9457686FD58B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD4AC0C5-6128-468F-9543-9457686FD58B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD4AC0C5-6128-468F-9543-9457686FD58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD4AC0C5-6128-468F-9543-9457686FD58B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA3C1025-3C68-41FD-9B21-0D58C1479582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA3C1025-3C68-41FD-9B21-0D58C1479582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA3C1025-3C68-41FD-9B21-0D58C1479582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA3C1025-3C68-41FD-9B21-0D58C1479582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00B47A2B-2CF3-4DEE-B202-87FC3D0232A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B47A2B-2CF3-4DEE-B202-87FC3D0232A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B47A2B-2CF3-4DEE-B202-87FC3D0232A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B47A2B-2CF3-4DEE-B202-87FC3D0232A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{200D6950-20B4-493A-B70D-4EC1CB0910D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{200D6950-20B4-493A-B70D-4EC1CB0910D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{200D6950-20B4-493A-B70D-4EC1CB0910D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{200D6950-20B4-493A-B70D-4EC1CB0910D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FC9E07F-9D6D-4481-B725-7BA5D2A04C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FC9E07F-9D6D-4481-B725-7BA5D2A04C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FC9E07F-9D6D-4481-B725-7BA5D2A04C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FC9E07F-9D6D-4481-B725-7BA5D2A04C86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

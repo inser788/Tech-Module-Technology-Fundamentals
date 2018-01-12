@@ -1,0 +1,109 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _02_Trophon_the_Grumpy_Cat
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var numbers = Console.ReadLine().Split().Select(int.Parse).ToList();
+            var startIndex = int.Parse(Console.ReadLine());
+            string valueOfItems = Console.ReadLine();
+            string typeOfItems = Console.ReadLine();
+            int numberAtStartIndex = numbers.ElementAt(startIndex);
+            var leftListNumbers = new List<long>();
+            var rightListNumbers = new List<long>();
+            if (valueOfItems == "cheap")
+            {
+                for (int i = 0; i < startIndex; i++)
+                {
+                    var currentNumber = numbers[i];
+                    if (currentNumber < numberAtStartIndex && typeOfItems == "positive" && currentNumber >= 0)
+                    {
+                        leftListNumbers.Add(currentNumber);
+                    }
+                    else if (currentNumber < numberAtStartIndex && typeOfItems == "negative" && currentNumber < 0)
+                    {
+                        leftListNumbers.Add(currentNumber);
+
+                    }
+                    else if (currentNumber < numberAtStartIndex && typeOfItems == "all")
+                    {
+                        leftListNumbers.Add(currentNumber);
+                    }
+                }
+                for (int i = startIndex + 1; i < numbers.Count; i++)
+                {
+                    var currentNumber = numbers[i];
+                    if (currentNumber < numberAtStartIndex && typeOfItems == "positive" && currentNumber >= 0)
+                    {
+                        rightListNumbers.Add(currentNumber);
+                    }
+                    else if (currentNumber < numberAtStartIndex && typeOfItems == "negative" && currentNumber < 0)
+                    {
+                        rightListNumbers.Add(currentNumber);
+
+                    }
+                    else if (currentNumber < numberAtStartIndex && typeOfItems == "all")
+                    {
+                        rightListNumbers.Add(currentNumber);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < startIndex; i++)
+                {
+                    var currentNumber = numbers[i];
+                    if (currentNumber >= numberAtStartIndex && typeOfItems == "positive" && currentNumber >= 0)
+                    {
+                        leftListNumbers.Add(currentNumber);
+                    }
+                    else if (currentNumber >= numberAtStartIndex && typeOfItems == "negative" && currentNumber < 0)
+                    {
+                        leftListNumbers.Add(currentNumber);
+
+                    }
+                    else if (currentNumber >= numberAtStartIndex && typeOfItems == "all")
+                    {
+                        leftListNumbers.Add(currentNumber);
+                    }
+                }
+                for (int i = startIndex + 1; i < numbers.Count; i++)
+                {
+                    var currentNumber = numbers[i];
+                    if (currentNumber >= numberAtStartIndex && typeOfItems == "positive" && currentNumber >= 0)
+                    {
+                        rightListNumbers.Add(currentNumber);
+                    }
+                    else if (currentNumber >= numberAtStartIndex && typeOfItems == "negative" && currentNumber < 0)
+                    {
+                        rightListNumbers.Add(currentNumber);
+
+                    }
+                    else if (currentNumber >= numberAtStartIndex && typeOfItems == "all")
+                    {
+                        rightListNumbers.Add(currentNumber);
+                    }
+                }
+            }
+            var sumLeftList = leftListNumbers.Sum();
+            var sumRightList = rightListNumbers.Sum();
+            if (sumLeftList>=sumRightList)
+            {
+                Console.WriteLine($"Left - {sumLeftList}");
+            }
+            else
+            {
+                Console.WriteLine($"Right - {sumRightList}");
+            }
+
+
+
+        }
+    }
+}

@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _09_Make_a_Word
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numberOfCharachters = int.Parse(Console.ReadLine());
+            string word =string.Empty;
+            for (int i = 0; i < numberOfCharachters; i++)
+            {
+                char symbol = char.Parse(Console.ReadLine());
+                word += symbol;
+                
+            }
+            Console.WriteLine($"The word is: {word}");
+            
+        }
+    }
+}

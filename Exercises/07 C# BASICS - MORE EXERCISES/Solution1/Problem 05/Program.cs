@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Problem_05
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double BPM = double.Parse(Console.ReadLine());
+            double numberOfBeats = double.Parse(Console.ReadLine());
+
+            double bars = numberOfBeats / 4;
+            double lenth = numberOfBeats/(BPM / 60.0)  ;
+
+            double minutes = lenth / 60;
+            double seconds = lenth % 60;
+            Console.WriteLine($"{Math.Round(bars,1)} bars - {Math.Truncate(minutes)}m {Math.Truncate(seconds)}s");
+
+        }
+    }
+}
