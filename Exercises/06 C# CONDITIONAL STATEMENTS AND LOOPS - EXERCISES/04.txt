@@ -25,9 +25,7 @@ namespace Problem_04
                         priceStudio = (nights * 50) * 0.95;
                         priceDouble = nights * 65;
                         priceSuite = nights * 75;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                     
 
                     }
                     else
@@ -35,9 +33,7 @@ namespace Problem_04
                         priceStudio = nights * 50;
                         priceDouble = nights * 65;
                         priceSuite = nights * 75;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                    
 
                     }
                     break;
@@ -47,18 +43,14 @@ namespace Problem_04
                         priceStudio = ((nights-1) * 50) * 0.95;
                         priceDouble = nights * 65;
                         priceSuite = nights * 75;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                       
                     }
                     else
                     {
                         priceStudio = nights * 50;
                         priceDouble = nights * 65;
                         priceSuite = nights * 75;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                       
 
                     }
                     break;
@@ -68,9 +60,7 @@ namespace Problem_04
                         priceStudio = (nights * 60);
                         priceDouble = (nights * 72)*0.90;
                         priceSuite = nights * 82;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                       
 
                     }
                     else
@@ -78,9 +68,7 @@ namespace Problem_04
                         priceStudio = nights * 60;
                         priceDouble = nights * 72;
                         priceSuite = nights * 82;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                      
 
                     }
                     break;
@@ -90,9 +78,7 @@ namespace Problem_04
                         priceStudio = ((nights-1) * 60);
                         priceDouble = (nights * 72);
                         priceSuite = nights * 82;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                       
 
                     }
                     else if (nights>14)
@@ -100,18 +86,14 @@ namespace Problem_04
                         priceStudio = ((nights - 1) * 60);
                         priceDouble = (nights * 72)*0.90;
                         priceSuite = nights * 82;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                        
                     }
                     else
                     {
                         priceStudio = nights * 60;
                         priceDouble = nights * 72;
                         priceSuite = nights * 82;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                       
 
                     }
                     break;
@@ -121,9 +103,7 @@ namespace Problem_04
                         priceStudio = (nights * 68);
                         priceDouble = nights * 77;
                         priceSuite = (nights * 89)*0.85;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                       
 
                     }
                     else
@@ -131,9 +111,7 @@ namespace Problem_04
                         priceStudio = nights * 68;
                         priceDouble = nights * 77;
                         priceSuite = nights * 89;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                       
 
                     }
                     break;
@@ -143,9 +121,7 @@ namespace Problem_04
                         priceStudio = (nights * 68);
                         priceDouble = nights * 77;
                         priceSuite = (nights * 89) * 0.85;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                       
 
                     }
                     else
@@ -153,9 +129,7 @@ namespace Problem_04
                         priceStudio = nights * 68;
                         priceDouble = nights * 77;
                         priceSuite = nights * 89;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                        
 
                     }
                     break;
@@ -165,9 +139,7 @@ namespace Problem_04
                         priceStudio = (nights * 68);
                         priceDouble = nights * 77;
                         priceSuite = (nights * 89) * 0.85;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
+                       
 
                     }
                     else
@@ -175,14 +147,14 @@ namespace Problem_04
                         priceStudio = nights * 68;
                         priceDouble = nights * 77;
                         priceSuite = nights * 89;
-                        Console.WriteLine($"Studio: {priceStudio:f2} lv.");
-                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
-                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
-
+                     
                     }
                     break;
 
             }
+			 Console.WriteLine($"Studio: {priceStudio:f2} lv.");
+                        Console.WriteLine($"Double: {priceDouble:f2} lv.");
+                        Console.WriteLine($"Suite: {priceSuite:f2} lv.");
         }
     }
 }
