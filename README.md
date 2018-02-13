@@ -37,13 +37,10 @@
 ---
 
 ## Extended Exercises
-- <a href="https://github.com/inser788/Tech-Module-Technology-Fundamentals/tree/master/Extended/01%20Data%20Types%2C%20Variables%20and%20Methods%20-%20Exercise" >01 Data Types, Variables and Methods - Exercise</a>
-- <a href="https://github.com/inser788/Tech-Module-Technology-Fundamentals/tree/master/Extended/02%20ARRAYS%2C%20LISTS%2C%20ARRAY%20AND%20LIST%20ALGORITHMS" >02 ARRAYS, LISTS, ARRAY AND LIST ALGORITHMS</a>
-- <a href="https://github.com/inser788/Tech-Module-Technology-Fundamentals/tree/master/Extended/03%20ARRAYS%2C%20LISTS%2C%20ARRAY%20AND%20LIST%20ALGORITHMS%20-%20EXERCISES" >03 ARRAYS, LISTS, ARRAY AND LIST ALGORITHMS - EXERCISES</a>
-- <a href="https://github.com/inser788/Tech-Module-Technology-Fundamentals/tree/master/Extended/04%20STRINGS%2C%20REGULAR%20EXPRESSIONS%20AND%20TEXT%20PROCESSING" >04 STRINGS, REGULAR EXPRESSIONS AND TEXT PROCESSING</a>
-- <a href="https://github.com/inser788/Tech-Module-Technology-Fundamentals/tree/master/Extended/05%20STRINGS%2C%20REGULAR%20EXPRESSIONS%20AND%20TEXT%20PROCESSING%20-%20EXERCISES" >05 STRINGS, REGULAR EXPRESSIONS AND TEXT PROCESSING - EXERCISES</a>
-- <a href="https://github.com/inser788/Tech-Module-Technology-Fundamentals/tree/master/Extended/06%20DICTIONARIES%2C%20NESTED%20COLLECTIONS%2C%20LINQ%20AND%20LAMBDA%20EXPRESSIONS" >06 DICTIONARIES, NESTED COLLECTIONS, LINQ AND LAMBDA EXPRESSIONS</a>
-- <a href="https://github.com/inser788/Tech-Module-Technology-Fundamentals/tree/master/Extended/07%20DICTIONARIES-Exerceises" >07 DICTIONARIES-Exerceises</a>
+- <a href="https://github.com/inser788/Tech-Module-Technology-Fundamentals/tree/master/Extended/01%20Data%20Types%2C%20Variables%20and%20Methods%20-%20Exercise" >01 DATA TYPES,VARIABLES AND METHODS - EXERCISES</a>
+- <a href="https://github.com/inser788/Tech-Module-Technology-Fundamentals/tree/master/Extended/02%20ARRAYS%2C%20LISTS%2C%20ARRAY%20AND%20LIST%20ALGORITHMS%20-%20EXERCISES" >02 ARRAYS, LISTS, ARRAY AND LIST ALGORITHMS - EXERCISES</a>
+- <a href="https://github.com/inser788/Tech-Module-Technology-Fundamentals/tree/master/Extended/03%20STRINGS%2C%20REGULAR%20EXPRESSIONS%20AND%20TEXT%20PROCESSING%20-%20EXERCISES" >03 STRINGS, REGULAR EXPRESSIONS AND TEXT PROCESSING - EXERCISES</a>
+- <a href="https://github.com/inser788/Tech-Module-Technology-Fundamentals/tree/master/Extended/04%20DICTIONARIES%2C%20NESTED%20COLLECTIONS%2C%20LINQ%20AND%20LAMBDA%20EXPRESSIONS%20-%20Exercises" >04 DICTIONARIES, NESTED COLLECTIONS, LINQ AND LAMBDA EXPRESSIONS - EXERCISES</a>
 
 ---
 
