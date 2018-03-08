@@ -14,10 +14,22 @@ public class StartUp
         int robesCount = countStudents;
         int beltsCount = countStudents-(countStudents / 6);
 
-        decimal totalPrice = sabersPrice * sabersCount + robesPrice * robesCount + beltsPrice * beltsCount;
+        decimal totalPrice = GetTotalPrice(sabersPrice, sabersCount, robesPrice, robesCount, beltsPrice, beltsCount);
 
         decimal diffrences = allMoney - totalPrice;
-        if (diffrences>=0)
+
+        PrintResult(diffrences, totalPrice);
+    }
+
+    private static decimal GetTotalPrice(decimal sabersPrice, int sabersCount, decimal robesPrice, int robesCount, decimal beltsPrice, int beltsCount)
+    {
+       return  sabersPrice * sabersCount + robesPrice * robesCount + beltsPrice * beltsCount;
+
+    }
+
+    private static void PrintResult(decimal diffrences, decimal totalPrice)
+    {
+        if (diffrences >= 0)
         {
             Console.WriteLine($"The money is enough - it would cost {totalPrice:f2}lv.");
         }
