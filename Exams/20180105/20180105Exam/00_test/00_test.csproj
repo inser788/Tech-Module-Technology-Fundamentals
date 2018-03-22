@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E6E1E3CA-1AE7-4C5E-BA6F-F9D9EC802718}</ProjectGuid>
+    <ProjectGuid>{E74323B6-7726-4C58-8950-354A0AC3827E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_02_Snowmen</RootNamespace>
-    <AssemblyName>02 Snowmen</AssemblyName>
+    <RootNamespace>_00_test</RootNamespace>
+    <AssemblyName>00_test</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StartUp.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
