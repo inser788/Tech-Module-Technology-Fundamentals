@@ -8,8 +8,7 @@ namespace ParkingValidation
     {
         static void Main()
         {
-            try
-            {
+          
                 var sequanceOfElements = Console.ReadLine()
                     .Split()
                     .Select(int.Parse)
@@ -98,9 +97,6 @@ namespace ParkingValidation
                     }
                 }
             }
-            catch (Exception e)
-            {
-            }
-        }
+      
     }
 }
